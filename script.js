@@ -129,7 +129,7 @@ function comprarCupon(id) {
     actualizarSaldoVisual();
     renderizarTienda();
     if (cupon.tipo === "whatsapp") {
-        const url = `https://wa.me/${TELEFONO}?text=${encodeURIComponent("¡Holaa, he comprat aquest cupón!: " + cupon.nombre + " - " + cupon.valor)}`;
+        const url = `https://wa.me/${TELEFONO}?text=${encodeURIComponent("✅✅ CUPÓN COMPRAT ✅✅%0A" + cupon.nombre + " - " + cupon.valor)}`;
         window.open(url, '_blank');
         mostrarMensaje("¡Cupón canjeado! Obrint WhatsApp...");
     } else {
