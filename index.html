@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro San Valentín</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Contenedor de Mensajes (Toast) -->
+    <div id="toast-container"></div>
+
+    <!-- Pantalla de Inicio -->
+    <div id="pantalla-inicio" class="pantalla">
+        <h1>La Nostra Història</h1>
+        <div id="contador">
+            <div class="tiempo-bloque"><span id="meses">00</span><small>Mesos</small></div>
+            <div class="tiempo-bloque"><span id="dias">00</span><small>Dies</small></div>
+            <div class="tiempo-bloque"><span id="horas">00</span><small>Hrs</small></div>
+            <div class="tiempo-bloque"><span id="minutos">00</span><small>Min</small></div>
+            <div class="tiempo-bloque"><span id="segundos">00</span><small>Seg</small></div>
+        </div>
+        <div class="menu-principal">
+            <button class="btn-principal" onclick="irATienda()" id="btn-tienda">Anar a la tenda</button>
+            <button class="btn-secundario" onclick="mostrarPantalla('pantalla-juegos')">Guanyar Lovecoins</button>
+        </div>
+        <div class="saldo-display">❤️ <span class="saldo-valor">0</span> Lovecoins</div>
+    </div>
+
+    <!-- Pantalla: Menú de Juegos -->
+    <div id="pantalla-juegos" class="pantalla oculto">
+        <h1>Jocs</h1>
+        <div class="menu-principal">
+            <button class="btn-juego" onclick="iniciarQuiz()" id="btn-quiz">1. Quiz del Amor</button>
+            <button class="btn-juego" onclick="iniciarCatch()">2. Atrapa els Cors</button>
+            <button class="btn-juego" onclick="iniciarMemoria()">3. Parelles de Records</button>
+            <button class="btn-volver" onclick="mostrarPantalla('pantalla-inicio')">Tornar a l'Inici</button>
+        </div>
+        <div class="saldo-display">❤️ <span class="saldo-valor">0</span> Lovecoins</div>
+    </div>
+
+    <!-- Pantalla: Quiz -->
+    <div id="pantalla-quiz" class="pantalla oculto">
+        <h2 id="pregunta-texto">Pregunta</h2>
+        <div id="opciones-quiz" class="menu-principal"></div>
+        <button id="btn-siguiente-quiz" class="btn-principal oculto" onclick="siguientePregunta()">Següent</button>
+        
+        <div id="resultado-quiz" class="oculto">
+            <h3>¡Quiz Completat!</h3>
+            <!-- Nuevo elemento para mostrar el marcador -->
+            <p id="marcador-final" style="font-weight: bold; font-size: 1.2rem; color: #ff4d6d;"></p>
+            <p>Has guanyat 200 Lovecoins</p>
+            <p>¡La tenda ja està desbloquejada!</p>
+        </div>
+        <button class="btn-volver" onclick="mostrarPantalla('pantalla-inicio')">Tornar a l'Inici</button>
+    </div>
+
+    <!-- Pantalla: Tienda -->
+    <div id="pantalla-tienda" class="pantalla oculto">
+        <h1>Tenda de Cupons</h1>
+        <div id="contenedor-cupones"></div>
+        <button class="btn-volver" onclick="mostrarPantalla('pantalla-inicio')">Tornar a l'Inici</button>
+        <div class="saldo-display">❤️ <span class="saldo-valor">0</span> Lovecoins</div>
+    </div>
+
+    <!-- Pantalla: Catch Hearts -->
+    <div id="pantalla-catch" class="pantalla oculto">
+        <h2>¡Atrapa Cors!</h2>
+        <p>Temps: <span id="catch-tiempo">20</span>s</p>
+        <div id="area-juego"></div>
+        <div class="menu-principal">
+            <button class="btn-volver" onclick="salirDeJuego()">Tornar a l'Inici</button>
+        </div>
+        <div class="saldo-display">Punts: <span id="catch-puntos">0</span></div>
+    </div>
+
+    <!-- Pantalla: Memoria -->
+    <div id="pantalla-memoria" class="pantalla oculto">
+        <h2>Memòria</h2>
+        <div id="tablero-memoria"></div>
+        <button class="btn-volver" onclick="mostrarPantalla('pantalla-inicio')">Tornar a l'Inici</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

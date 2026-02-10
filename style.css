@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff0f3;
+    color: #ff4d6d;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.pantalla {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.oculto { display: none !important; }
+
+/* Tienda y Cupones */
+#contenedor-cupones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin: 20px 0;
+    overflow-y: auto;
+    max-height: 60vh;
+    padding: 5px;
+}
+
+.tarjeta-cupon {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(255, 77, 109, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.tarjeta-cupon.comprado {
+    background: #f8f8f8;
+    border-color: #eee;
+    opacity: 0.8;
+}
+
+.cupon-nombre { font-size: 0.9rem; font-weight: bold; margin-bottom: 8px; min-height: 2.4rem; display: flex; align-items: center; }
+.cupon-precio { font-size: 0.8rem; color: #ff8fa3; margin-bottom: 10px; }
+
+.btn-comprar {
+    width: 100%;
+    padding: 8px !important;
+    font-size: 0.8rem !important;
+}
+
+.btn-comprar:disabled {
+    background: #ccc !important;
+}
+
+/* Resto de estilos base */
+#contador { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 20px 0; }
+.tiempo-bloque { background: white; padding: 10px; border-radius: 10px; min-width: 65px; flex: 1; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.tiempo-bloque span { display: block; font-size: 1.2rem; font-weight: bold; }
+.tiempo-bloque small { font-size: 0.6rem; color: #ff8fa3; }
+
+.menu-principal { display: flex; flex-direction: column; gap: 12px; width: 100%; margin: 20px 0; }
+button { padding: 15px; border: none; border-radius: 25px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: 0.2s; }
+.btn-principal { background: #ff4d6d; color: white; }
+.btn-secundario { background: #ffb3c1; color: #590d22; }
+.btn-juego { background: white; border: 2px solid #ff4d6d; color: #ff4d6d; }
+.btn-volver { background: transparent; color: #ff8fa3; text-decoration: underline; margin-top: 10px; }
+
+.opcion-btn.correcto { background-color: #4CAF50 !important; color: white; }
+.opcion-btn.error { background-color: #f44336 !important; color: white; }
+
+#toast-container {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    z-index: 10000;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    opacity: 0;
+}
+#toast-container.visible { opacity: 1; }
+
+.saldo-display { margin-top: auto; background: white; padding: 10px 20px; border-radius: 20px; border: 2px solid #ffb3c1; font-weight: bold; }
+
+#area-juego { width: 100%; height: 350px; background: rgba(255,255,255,0.5); position: relative; border-radius: 15px; overflow: hidden; border: 2px dashed #ffb3c1; }
+.corazon-drop { position: absolute; font-size: 2.5rem; cursor: pointer; }
+#tablero-memoria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+.carta { width: 70px; height: 70px; background: #ff4d6d; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: transparent; cursor: pointer; }
+.carta.revelada { background: white; color: initial; border: 2px solid #ff4d6d; }
